@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import BarChartData from "./data.json";
 
 import BarChart from "./components/BarChart";
@@ -7,7 +9,7 @@ import PieChart from "./components/PieChart";
 import Chart from "chart.js/auto";
 
 const App = () => {
-  const chartConfig = {
+  const [chartConfig, setChartConfig] = useState({
     labels: BarChartData.map((item) => item.year),
     datasets: [
       {
@@ -16,7 +18,7 @@ const App = () => {
         // backgroundColor: ["blue", "yellow"],
       },
     ],
-  };
+  });
 
   return (
     <div className="App">
